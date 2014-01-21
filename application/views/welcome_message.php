@@ -13,7 +13,18 @@
 		<div class="container">
 			<header class="row">
 				<div class="span6">
-					<img src="/images/failpay75.gif" style="margin: 30px" />
+					<div style="text-align: left; font-weight: bold; margin: 30px; color: #10549B">
+						<img src="/images/failpay75.gif" /><br>
+						version: 0.01 alpha
+<?php 
+	// Определяем название ветки
+	$stringfromfile = file('.git/HEAD', FILE_USE_INCLUDE_PATH);
+	$stringfromfile = $stringfromfile[0]; //get the string from the array
+	$explodedstring = explode("/", $stringfromfile); //seperate out by the "/" in the string
+	$branchname = $explodedstring[2]; //get the one that is always the branch name
+	echo "<span style='color: #2A97D8; margin-left: 30px'>Current branch: ".$branchname."</span>"; //show it on the page
+?>    						
+					</div>
 				</div>
 				<div class="span6" style="text-align: center; margin-top: 40px">
 					<h2>COUNT: 1024 грн</h2>
@@ -157,9 +168,16 @@
 						</tr>
 					</table>
 					</div>
-			</article>			
-		</div>
+			</article>
+						
+			<article class="row">				
+				<div class="span4">
+					<h3>Утилиты</h3>
+					<p><a href="/phpminiadmin.php" target="_blanc">PHPMiniAdmin</a></p>
 
+				</div>
+			</article>	
+		</div>
 
 	</body>
 </html>
