@@ -1,88 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>FailPlay</title>
+ 		<link  href="/css/bootstrap.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+		<script src="/js/jquery.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="row">
+				<div class="span6">
+					<img src="/images/failpay75.gif" style="margin: 30px" />
+				</div>
+				<div class="span6" style="text-align: center; margin-top: 40px">
+					<h2>COUNT: 1024 грн</h2>
+				</div>
+			</header>
+			<article class="row">
+				<div class="span4">
+					<h3>О проекте</h3>
+					<p>FailPay является благотворительным проектом нацеленным в первую очередь на сбор средств для приобретения кофейной машины в целях обеспечения потребностей сотрудников "Инженерного сервиса"</p>
+					</div>
+				<div class="span4">
+					<h3>Аппаратная часть</h3>
+					<p>FailPay состоит из приемника купюр, Arduino с клавиатурой и экраном, Raspbery Pi. 
+						Все гаджеты и девайсы устройства а также интелектуальные права на программное обеспечение принадлежат разработчикам и сотрудникам "Инженерного сервиса".</p>
+					</div>
+				<div class="span4">
+					<h3>Принцип работы</h3>
+					<p>Вставляете деньгу в купюроприемник, нажимаете "оплатить" и ваша транзакция через Arduino записывается в базу данных на Raspberry. Все транзакции хранятся в базе данных.
+						Итоговая сумма видна через веб-интерфейс устройства.</p>
+					</div>
+			</article>
+			<style>
+				#transactions {
+					width: 100%;
+					
+				}
 
-	<style type="text/css">
+				#transactions tr{
+					border-bottom: 1px solid gray;
+				}
 
-	::selection{ background-color: #E13300; color: white; }
-	::moz-selection{ background-color: #E13300; color: white; }
-	::webkit-selection{ background-color: #E13300; color: white; }
+				#transactions tr td{
+					padding: 10px;
+					border-left: 1px solid gray;
+				}
 
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
+				#transactions tr th{
+					padding: 10px;
+					background: lightgray;
+					color: black;
+				}
 
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
+				#transactions tr:hover {
+					background: lightgray;
+				}
 
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
+				#transactions tr td:nth-child(1) {
+					border-left: none;
+					text-align: center;
+					width: 5%;
+				}
+				#transactions tr td:nth-child(2) {
+					text-align: center;
+					width: 5%;
+				}
+				#transactions tr td:nth-child(3) {
+					text-align: center;
+					width: 20%;
+				}
+				#transactions tr td:nth-child(4) {
+					text-align: left;
+				}
+				
+				#transactions tr td:nth-child(5) {
+					text-align: right;
+				}
+			</style>
+			<article class="row">
+				<div class="span12">
+					<h3>Транзакции</h3>
+					<table id="transactions">
+						<tr>
+							<th>id</th>
+							<th>user</th>
+							<th>datetime</th>
+							<th>description</th>
+							<th>summ</th>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 13:07</td>
+							<td>Пополнение баланса</td>
+							<td>200 грн</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 13:05</td>
+							<td>Пополнение баланса</td>
+							<td>10 грн</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 12:57</td>
+							<td>Пополнение баланса</td>
+							<td>5 грн</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 12:37</td>
+							<td>Пополнение баланса</td>
+							<td>2 грн</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 12:33</td>
+							<td>Пополнение баланса</td>
+							<td>20 грн</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 12:31</td>
+							<td>Пополнение баланса</td>
+							<td>5 грн</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 12:23</td>
+							<td>Пополнение баланса</td>
+							<td>20 грн</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 12:20</td>
+							<td>Пополнение баланса</td>
+							<td>200 грн</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>anonymous</td>
+							<td>21 января 2013 г. 12:03</td>
+							<td>Пополнение баланса</td>
+							<td>1 грн</td>
+						</tr>
+					</table>
+					</div>
+			</article>			
+		</div>
 
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
 
-	#body{
-		margin: 0 15px 0 15px;
-	}
-	
-	p.footer{
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-	
-	#container{
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
-</head>
-<body>
-
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
-</div>
-
-</body>
+	</body>
 </html>
