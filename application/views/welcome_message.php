@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="span6" style="text-align: center; margin-top: 40px">
-					<h2>COUNT: 1024 грн</h2>
+					<h2>COUNT: <?= $total; ?> грн</h2>
 				</div>
 			</header>
 			<article class="row">
@@ -93,8 +93,12 @@
 				}
 			</style>
 			<article class="row">
-				<div class="span12">
+				<div class="span2"></div>
+				<div class="span8">
 					<h3>Транзакции</h3>
+					<?php 
+					if ($num_res > 0) {
+						?>
 					<table id="transactions">
 						<tr>
 							<th>id</th>
@@ -103,71 +107,22 @@
 							<th>description</th>
 							<th>summ</th>
 						</tr>
+					
+					<?php for ($i = 0; $i < $num_res; $i ++) { ?> 
 						<tr>
-							<td>9</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 13:07</td>
-							<td>Пополнение баланса</td>
-							<td>200 грн</td>
+							<td><?= $transactions[$i]['id']; ?></td>
+							<td><?= $transactions[$i]['user']; ?></td>
+							<td><?= $transactions[$i]['date']; ?></td>
+							<td><?= $transactions[$i]['type']; ?></td>
+							<td><?= $transactions[$i]['money']; ?> грн.</td>
 						</tr>
-						<tr>
-							<td>8</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 13:05</td>
-							<td>Пополнение баланса</td>
-							<td>10 грн</td>
-						</tr>
-						<tr>
-							<td>7</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 12:57</td>
-							<td>Пополнение баланса</td>
-							<td>5 грн</td>
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 12:37</td>
-							<td>Пополнение баланса</td>
-							<td>2 грн</td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 12:33</td>
-							<td>Пополнение баланса</td>
-							<td>20 грн</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 12:31</td>
-							<td>Пополнение баланса</td>
-							<td>5 грн</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 12:23</td>
-							<td>Пополнение баланса</td>
-							<td>20 грн</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 12:20</td>
-							<td>Пополнение баланса</td>
-							<td>200 грн</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>anonymous</td>
-							<td>21 января 2013 г. 12:03</td>
-							<td>Пополнение баланса</td>
-							<td>1 грн</td>
-						</tr>
+					<?php } ?>
+					
 					</table>
-					</div>
+					
+					<?php } else echo "Транзакции отсутствуют"; ?>
+				</div>
+				<div class="span2"></div>
 			</article>
 						
 			<article class="row">				
