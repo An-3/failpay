@@ -22,11 +22,7 @@ class Trans extends CI_Controller {
         $amount_money = ($this->uri->segment(3) !== FALSE) ? $this->uri->segment(3) : 0;
 
         if( $this->trans_model->getUser($user_id) ){
-<<<<<<< HEAD
             if( $_SERVER['REMOTE_ADDR'] == '172.16.5.177' ){ 
-=======
-            //if( $_SERVER['REMOTE_ADDR'] == '172.16.5.177' ){ 
->>>>>>> bbd57f74ccb9f484898d1d8174256e85a5208cf2
                 $data['user_id'] = $user_id;
                 $data['amount_money'] = $amount_money;
                 $data['amount_time'] = 0;
@@ -34,11 +30,7 @@ class Trans extends CI_Controller {
                 $data['type_id'] = 1;
                 $data['tariff_id'] = 1;
                 $data['content'] = $this->trans_model->saveData($data);
-<<<<<<< HEAD
             }else{$data['content'] = 'You don`\t have permission';  }
-=======
-            //}else{$data['content'] = 'You don\'t have permission';  }
->>>>>>> bbd57f74ccb9f484898d1d8174256e85a5208cf2
         }else{
             $data['content'] = 'No such user'; 
         }
