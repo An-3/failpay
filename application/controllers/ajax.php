@@ -1,16 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Ajax extends CI_Controller {
 
 	public function index()
 	{
+		echo ""; // Контроллер АЯКСовых обращений.
+	}
+
+	public function get_all_transactions () {
 		$this->load->helper('date');
-		
-		$query = $this->db->query("SELECT SUM(`amount_money`) as `total` FROM `transactions`;");
-		$result = $query->result();
-		$current = $result[0];
-		$data['total'] = $current->total;
-		
 		
 		$query = $this->db->query("SELECT `t`.`id`, `t`.`user_id`, `t`.`late_date`, `t`.`type_id`, `t`.`amount_money`,
 								`u`.`username`, `tt`.`name`
@@ -30,9 +28,14 @@ class Welcome extends CI_Controller {
 			}
 		}
 		
-		$this->load->view('welcome_message', $data);
+		$this->load->view('ajax_transactions_view', $data);
+	}
+	
+	public function get_total_summ () {
+		$query = $this->db->query("SELECT SUM(`amount_money`) as `total` FROM `transactions`;");
+		$result = $query->result();
+		$current = $result[0];
+		echo $current->total;
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+?>

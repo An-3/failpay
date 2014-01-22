@@ -13,7 +13,7 @@
 		<div class="container">
 			<header class="row">
 				<div class="span6">
-					<div style="text-align: left; font-weight: bold; margin: 30px; color: #10549B">
+					<div style="text-align: left; font-weight: bold; margin-top: 30px; margin-bottom:30px; color: #10549B">
 						<img src="/images/failpay75.gif" /><br>
 						ver.: 0.1 Анонимный
 <?php 
@@ -27,10 +27,10 @@
 					</div>
 				</div>
 				<div class="span6" style="text-align: center; margin-top: 40px">
-					<h2>COUNT: <?= $total; ?> грн</h2>
+					<h2 id="total_count">COUNT: <?= $total; ?> грн</h2>
 				</div>
 			</header>
-			<article class="row">
+			<article class="row visible-desktop">
 				<div class="span4">
 					<h3>О проекте</h3>
 					<p>FailPay является благотворительным проектом нацеленным в первую очередь на сбор средств для приобретения кофейной машины в целях обеспечения потребностей сотрудников "Инженерного сервиса"</p>
@@ -93,9 +93,10 @@
 				}
 			</style>
 			<article class="row">
-				<div class="span2"></div>
+				<div class="span2 visible-desktop"></div>
 				<div class="span8">
-					<h3>Транзакции</h3>
+					<h3 onclick="JavaScript: trans_update();" style="cursor: pointer">Транзакции</h3>
+					
 					<?php 
 					if ($num_res > 0) {
 						?>
@@ -122,10 +123,10 @@
 					
 					<?php } else echo "Транзакции отсутствуют"; ?>
 				</div>
-				<div class="span2"></div>
+				<div class="span2 visible-desktop"></div>
 			</article>
 						
-			<article class="row">				
+			<article class="row visible-desktop">				
 				<div class="span4">
 					<h3>Утилиты</h3>
 					<p><a href="/phpminiadmin.php" target="_blanc">PHPMiniAdmin</a></p>
@@ -138,6 +139,28 @@
 				</div>
 			</article>	
 		</div>
+		<script>
+		function trans_update() {
+			$.ajax({
+				  url: "/ajax/get_total_summ/",
+				  cache: false,
+				  success: function(summ){
+				    $("#total_count").html("COUNT: "+summ+" грн");
+				  }
+				});
+			
+			$.ajax({
+				  url: "/ajax/get_all_transactions/",
+				  cache: false,
+				  success: function(table){
+				    $("#transactions").html(table);
+				  }
+				});
+			//alert("update");
+			setTimeout(trans_update, 4000)
+		}
 
+		trans_update();
+		</script>
 	</body>
 </html>
