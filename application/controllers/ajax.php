@@ -35,7 +35,7 @@ class Ajax extends CI_Controller {
 		$query = $this->db->query("SELECT SUM(`amount_money`) as `total` FROM `transactions`;");
 		$result = $query->result();
 		$current = $result[0];
-		echo $current->total;
+		echo (int) $current->total;
 	}
 }
 ?>
