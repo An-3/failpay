@@ -15,15 +15,16 @@
 				<div class="span6">
 					<div style="text-align: left; font-weight: bold; margin-top: 30px; margin-bottom:30px; color: #10549B">
 						<img src="/images/failpay75.gif" /><br>
-						ver.: 0.1 Анонимный
-<?php 
-	// Определяем название ветки
-	$stringfromfile = file('.git/HEAD', FILE_USE_INCLUDE_PATH);
-	$stringfromfile = $stringfromfile[0]; //get the string from the array
-	$explodedstring = explode("/", $stringfromfile); //seperate out by the "/" in the string
-	$branchname = $explodedstring[2]; //get the one that is always the branch name
-	echo "<span style='color: #2A97D8; margin-left: 20px'>Current branch: ".$branchname."</span>"; //show it on the page
-?>    						
+						<span class="hidden-phone">ver.: 0.1 Анонимный
+						<?php 
+							// Определяем название ветки
+							$stringfromfile = file('.git/HEAD', FILE_USE_INCLUDE_PATH);
+							$stringfromfile = $stringfromfile[0]; //get the string from the array
+							$explodedstring = explode("/", $stringfromfile); //seperate out by the "/" in the string
+							$branchname = $explodedstring[2]; //get the one that is always the branch name
+							echo "<span style='color: #2A97D8; margin-left: 20px'>Current branch: ".$branchname."</span>"; //show it on the page
+						?>    						
+						</span>
 					</div>
 				</div>
 				<div class="span6" style="text-align: center; margin-top: 40px">
@@ -95,7 +96,7 @@
 			<article class="row">
 				<div class="span2 visible-desktop"></div>
 				<div class="span8">
-					<h3 onclick="JavaScript: trans_update();" style="cursor: pointer">Транзакции</h3>
+					<h3>Транзакции</h3>
 					
 					<?php 
 					if ($num_res > 0) {

@@ -21,13 +21,13 @@ function mysql_to_human($date = '2012-19-10 12:30:02', $with_time = false, $with
     }  
   }
   $date = explode('-', $date[0]);
-  $year = $date[0];
+  $year = ""; // "<span class='visible-desktop'>".$date[0]." г.</span>";
   $month = intval($date[1]);
   $day = intval($date[2]);
 
   if ($month >= 1 and $month <= 12) {
     $month = $month_arr[$month-1];
-    return "$day $month $year г. $time";
+    return "$day $month $year $time";
   }
   else 
     return "Неизвестно";
