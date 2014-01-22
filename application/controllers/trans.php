@@ -30,7 +30,7 @@ class Trans extends CI_Controller {
                 $data['type_id'] = 1;
                 $data['tariff_id'] = 1;
                 $data['content'] = $this->trans_model->saveData($data);
-            }else{$data['content'] = 'You don`\t have permission';  }
+            }else{$data['content'] = 'You don`t have permission';  }
         }else{
             $data['content'] = 'No such user'; 
         }
