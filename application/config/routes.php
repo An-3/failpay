@@ -40,7 +40,8 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-
+$route['trans/:num'] = "trans/index";
+$route['trans/:num/:num'] = "trans/transaction";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
